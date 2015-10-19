@@ -1,7 +1,7 @@
 /**
  * Created by cameronoakley on 10/7/15.
  */
-public class Contact {//data class
+public class Contact implements Comparable  {//data class
     public String name;
     public String address;
     public String email;
@@ -31,6 +31,17 @@ public class Contact {//data class
 
     public int getAge() {
         return age;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Contact c = (Contact) o;
+        int result = name.compareTo(c.name);
+        if (result == 0){
+            return age - c.age;
+        }else {
+            return result;
+        }
     }
 }
 
